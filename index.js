@@ -23,11 +23,11 @@ app.use(session({
 }))
 
 app.use(cors());
-app.set('views', path.resolve() + '/views')
-app.set('view engine', 'ejs')
-app.use(express.urlencoded( { extended: true } ))
-app.use(express.static(path.join(path.resolve(), 'public')))
+app.set("views", path.resolve() + "/views")
+app.set("view engine", "ejs")
+app.use(express.static(path.join(path.resolve(), "public")))
 
+app.use(express.urlencoded( { extended: true } ))
 bootstrap(app)
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
