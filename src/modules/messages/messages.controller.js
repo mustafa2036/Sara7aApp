@@ -9,19 +9,15 @@ export const messages = async (req, res) => {
     await QRCode.toDataURL(url)
     .then(url => {
         qrCodeUrl = url
-        // console.log(url)
+        console.log(url)
     })
     .catch(err => {
         console.error(err)
     })
-
-
     let messages = await Message.find({ user: req.session.userId })
-
     if(req.session.isLoggedIn) {
         res.render('messages.ejs', { session: req.session, url, qrCodeUrl, messages })
     } else{
         res.redirect('/login')
     }
-    
 }
