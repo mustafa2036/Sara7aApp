@@ -9,7 +9,7 @@ export const messages = async (req, res) => {
     await QRCode.toDataURL(url)
     .then(url => {
         qrCodeUrl = url
-        console.log(url)
+        // console.log(url)
     })
     .catch(err => {
         console.error(err)
