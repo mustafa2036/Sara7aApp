@@ -1,17 +1,21 @@
 import express from 'express'
 import { dbConnection } from './database/dbConnection.js'
-import { bootstrap } from './src/modules/bootstrap.js'
 import session from 'express-session'
 import path from 'path'
 import cors from 'cors'
 import mongoSession from 'connect-mongodb-session'
+import homeRouter from './src/modules/home/home.routes.js'
+import loginRouter from './src/modules/login/login.routes.js'
+import messageRouter from './src/modules/messages/messages.routes.js'
+import registerRouter from './src/modules/register/register.routes.js'
+import userRouter from './src/modules/user/user.routes.js'
 let mongoDBStore = mongoSession(session)
 
 const app = express()
 const port = process.env.PORT || 3000;
 
 var store = new mongoDBStore({
-    uri: 'mongodb://localhost:27017/sarahahApp1',
+    url: 'mongodb://localhost:27017/sarahahApp1',
     collection: 'mySessions'
 });
 
@@ -28,6 +32,11 @@ app.set("view engine", "ejs")
 app.use(express.static(path.join(path.resolve(), "public")))
 
 app.use(express.urlencoded( { extended: true } ))
-bootstrap(app)
+// api endpoint
+app.use('/api/saraha', homeRouter)
+app.use('/api/signup', registerRouter)
+app.use('/api/signin', loginRouter)
+app.use('/api/messages', messageRouter)
+app.use('/api/user', userRouter)
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

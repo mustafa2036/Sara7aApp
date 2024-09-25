@@ -7,8 +7,8 @@ export const registerMessage = (req, res) => {
 
 export const handleRegister = async (req, res) => {
     let isUser = User.findOne({ email: req.body.email });
-    if(isUser) return res.redirect('/register');
+    // if(isUser) return res.redirect('/api/signup/register');
     await User.insertMany(req.body)
 
-    res.redirect('/login')
+    res.redirect('/api/signin/login')
 }

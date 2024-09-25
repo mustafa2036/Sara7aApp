@@ -3,7 +3,7 @@ import { Message } from '../../../database/model/messages.model.js';
 
 export const messages = async (req, res) => {
 
-    let url = `${req.protocol}://${req.get('host')}/user/${req.session.userId}`;
+    let url = `${req.protocol}://${req.get('host')}/api/user/${req.session.userId}`;
 
     let qrCodeUrl;
     await QRCode.toDataURL(url)
@@ -18,6 +18,6 @@ export const messages = async (req, res) => {
     if(req.session.isLoggedIn) {
         res.render('messages.ejs', { session: req.session, url, qrCodeUrl, messages })
     } else{
-        res.redirect('/login')
+        res.redirect('/api/singin/login')
     }
 }

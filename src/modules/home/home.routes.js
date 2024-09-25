@@ -3,6 +3,6 @@ import { home } from "./home.controller.js";
 
 let homeRouter = Router();
 
-homeRouter.get('/', home)
+homeRouter.get('/home', home)
 
 export default homeRouter;

@@ -5,9 +5,9 @@
                 <img src="/img/avatar.png" class="avatar " alt="">
 
             </a>
-            <h3 class="py-2">Mustafa Khalifha</h3>
+            <h3 class="py-2"> <%= session.name %> </h3>
             <div class="container w-50 m-auto">
-                <form action="/sendMsg/<%= userId %>" method="post">
+                <form action="/api/user/sendMsg/<%= userId %>" method="post">
                     <textarea class="form-control" name="message" id="" cols="10" rows="9" placeholder="You cannot send a Sarahah to yourself, share your profile with your friends :)"></textarea>
                     <button class="btn btn-outline-info mt-3"><i class="far fa-paper-plane"></i> Send</button>
                 </form>

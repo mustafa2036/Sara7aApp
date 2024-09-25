@@ -8,10 +8,10 @@ export const user = (req, res) => {
 export const sendMsg = async (req, res) => {
     req.body.user = req.params.id
     await Message.insertMany(req.body)
-    res.redirect('/user/' + req.params.id);
+    res.redirect('/api/user/' + req.params.id);
 }
 export const logout = async (req, res) => {
     req.session.destroy(function(err) {
-        res.redirect('/login')
+        res.redirect('/api/signin/login')
     })   
 }

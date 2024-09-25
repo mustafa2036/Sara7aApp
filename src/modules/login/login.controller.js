@@ -14,5 +14,5 @@ export const handleLogin = async (req, res) => {
     req.session.userId = user._id
     req.session.name = user.name
 
-    res.redirect('/messages')
+    res.redirect('/api/messages')
 }
