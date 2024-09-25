@@ -15,7 +15,7 @@ const app = express()
 const port = process.env.PORT || 3000;
 
 var store = new mongoDBStore({
-    url: 'mongodb+srv://Saraha-app:MFoYBtW4BonX9BjX@cluster0.qqwtl.mongodb.net/Saraha-app',
+    uri: 'mongodb+srv://Saraha-app:MFoYBtW4BonX9BjX@cluster0.qqwtl.mongodb.net/Saraha-app',
     collection: 'mySessions'
 });
 
