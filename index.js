@@ -33,7 +33,7 @@ app.use(express.static(path.join(path.resolve(), "/public")))
 
 app.use(express.urlencoded( { extended: true } ))
 // api endpoint
-app.use('/api/saraha', homeRouter)
+app.use('/api/saraha/home', homeRouter)
 app.use('/api/signup', registerRouter)
 app.use('/api/signin', loginRouter)
 app.use('/api/messages', messageRouter)
